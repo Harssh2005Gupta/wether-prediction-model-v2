@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#301400",
+                    "secondary-fixed-dim": "#94ccff",
+                    "tertiary": "#553112",
+                    "on-primary-container": "#9dd090",
+                    "background": "#f9f9f8",
+                    "primary": "#154212",
+                    "surface-bright": "#f9f9f8",
+                    "surface-tint": "#3b6934",
+                    "on-secondary-container": "#004972",
+                    "on-secondary-fixed": "#001d32",
+                    "on-primary": "#ffffff",
+                    "outline": "#72796e",
+                    "on-surface": "#191c1c",
+                    "on-primary-fixed-variant": "#23501e",
+                    "surface-container-highest": "#e1e3e2",
+                    "on-background": "#191c1c",
+                    "on-primary-fixed": "#002201",
+                    "surface-container-low": "#f3f4f3",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "on-error": "#ffffff",
+                    "secondary": "#006399",
+                    "on-surface-variant": "#42493e",
+                    "secondary-container": "#67bafd",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#a1d494",
+                    "primary-fixed-dim": "#a1d494",
+                    "surface-container-high": "#e7e8e7",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#bcf0ae",
+                    "surface-variant": "#e1e3e2",
+                    "secondary-fixed": "#cde5ff",
+                    "outline-variant": "#c2c9bb",
+                    "primary-container": "#2d5a27",
+                    "on-error-container": "#93000a",
+                    "surface": "#f9f9f8",
+                    "surface-container": "#edeeed",
+                    "on-secondary-fixed-variant": "#004b74",
+                    "on-tertiary-container": "#f0b78f",
+                    "surface-dim": "#d9dad9",
+                    "inverse-surface": "#2e3131",
+                    "inverse-on-surface": "#f0f1f0",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#704727",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1rem",
+                    "2xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "md": "16px",
+                    "unit": "8px",
+                    "gutter": "16px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "max-width": "1200px",
+                    "margin": "20px"
+            },
+            "fontFamily": {
+                    "label-md": ["Public Sans"],
+                    "headline-md": ["Work Sans"],
+                    "body-lg": ["Public Sans"],
+                    "label-bold": ["Public Sans"],
+                    "headline-lg": ["Work Sans"],
+                    "body-md": ["Public Sans"],
+                    "headline-xl": ["Work Sans"],
+                    "caption": ["Public Sans"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-glow {
+            box-shadow: 0 0 20px rgba(161, 212, 148, 0.3);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200 shadow-[0_4px_20px_-4px_rgba(45,90,39,0.12)] font-['Work_Sans'] antialiased">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tight text-[#2D5A27]">AgriControl AI</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-stone-500 hover:text-[#2D5A27] transition-all duration-200 font-label-md text-label-md" href="#">Dashboard</a>
+<a class="text-stone-500 hover:text-[#2D5A27] transition-all duration-200 font-label-md text-label-md" href="#">Fields</a>
+<a class="text-stone-500 hover:text-[#2D5A27] transition-all duration-200 font-label-md text-label-md" href="#">AI Hub</a>
+<a class="text-[#2D5A27] font-semibold border-b-2 border-[#2D5A27] pb-1 font-label-md text-label-md" href="#">Alerts</a>
+<a class="text-stone-500 hover:text-[#2D5A27] transition-all duration-200 font-label-md text-label-md" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-stone-50 transition-all text-stone-600">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-stone-50 transition-all text-stone-600">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-8 space-y-8">
+<!-- Premium AI Voice Assistant Hero -->
+<section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-container to-[#154212] p-8 md:p-12 shadow-xl ai-glow">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+<div class="space-y-4 max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full border border-white/20">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-on-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-on-primary-container"></span>
+</span>
+<span class="text-white text-caption font-caption tracking-wider uppercase">Live AI Active</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-white">How can I help with your harvest today?</h1>
+<p class="text-on-primary-container text-body-lg font-body-lg opacity-90">SWIF Intelligence is monitoring 12 active sensors across the North Field.</p>
+</div>
+<button class="flex items-center justify-center gap-3 bg-white text-primary px-8 py-5 rounded-2xl font-label-bold text-label-md shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all w-full md:w-auto">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mic</span>
+                    Talk to AI Assistant
+                </button>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Smart Control Panel & Selection -->
+<div class="lg:col-span-8 space-y-8">
+<div>
+<h2 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">settings_suggest</span>
+                        Smart Control Panel
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- SMS Card -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-secondary-fixed text-on-secondary-fixed-variant rounded-lg">
+<span class="material-symbols-outlined">sms</span>
+</div>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase">AI Recommended</span>
+</div>
+<h3 class="font-headline-md text-body-lg mb-2">SMS Alerts</h3>
+<p class="text-on-surface-variant text-caption font-caption mb-6">Recommended for critical weather alerts</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-outline">Enable</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- WhatsApp Card -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-secondary-fixed text-on-secondary-fixed-variant rounded-lg">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase">AI Recommended</span>
+</div>
+<h3 class="font-headline-md text-body-lg mb-2">WhatsApp</h3>
+<p class="text-on-surface-variant text-caption font-caption mb-6">Best for detailed visual reports</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-outline">Enable</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Voice Card -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-surface-container-high text-on-surface-variant rounded-lg">
+<span class="material-symbols-outlined">call</span>
+</div>
+</div>
+<h3 class="font-headline-md text-body-lg mb-2">Voice Call</h3>
+<p class="text-on-surface-variant text-caption font-caption mb-6">Only for critical emergencies</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-outline">Disable</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Alerts -->
+<div>
+<h2 class="font-headline-md text-headline-md mb-6">Recent Alerts</h2>
+<div class="space-y-4">
+<!-- High Risk Alert -->
+<div class="bg-white rounded-xl shadow-sm border-l-4 border-error p-5 flex items-center gap-6 hover:translate-x-1 transition-transform">
+<div class="flex-shrink-0 text-error">
+<span class="material-symbols-outlined text-[32px]">warning</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-1">
+<span class="px-2 py-0.5 bg-error-container text-on-error-container text-[10px] font-bold rounded uppercase">High Risk</span>
+<span class="text-caption font-caption text-outline">12:45 PM • Today</span>
+</div>
+<h4 class="font-label-bold text-label-md text-on-surface">Frost Warning: North Ridge</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Temperatures expected to drop to -2°C between 02:00 and 05:00.</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-caption font-caption rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">done_all</span>
+                                    via SMS
+                                </span>
+</div>
+</div>
+<!-- Info Alert -->
+<div class="bg-white rounded-xl shadow-sm border-l-4 border-secondary p-5 flex items-center gap-6 hover:translate-x-1 transition-transform">
+<div class="flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[32px]">water_drop</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-1">
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase">Info</span>
+<span class="text-caption font-caption text-outline">09:15 AM • Today</span>
+</div>
+<h4 class="font-label-bold text-label-md text-on-surface">Irrigation Complete</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Zone 4 saturation achieved. 450 gallons delivered.</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-caption font-caption rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">done_all</span>
+                                    via App
+                                </span>
+</div>
+</div>
+<!-- System Alert -->
+<div class="bg-white rounded-xl shadow-sm border-l-4 border-outline p-5 flex items-center gap-6 hover:translate-x-1 transition-transform">
+<div class="flex-shrink-0 text-outline">
+<span class="material-symbols-outlined text-[32px]">system_update</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-1">
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold rounded uppercase">System</span>
+<span class="text-caption font-caption text-outline">Yesterday</span>
+</div>
+<h4 class="font-label-bold text-label-md text-on-surface">System Update: v2.4.1</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">AI Hub updated with new pest recognition models.</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-caption font-caption rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">done_all</span>
+                                    Internal
+                                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Sidebar: AI Insights & Regional Settings -->
+<div class="lg:col-span-4 space-y-8">
+<!-- AI Suggestion Card -->
+<div class="bg-secondary-fixed/30 border border-secondary/20 p-6 rounded-2xl relative overflow-hidden ai-glow">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="p-2 bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">colors_spark</span>
+</div>
+<h3 class="font-label-bold text-label-md text-on-secondary-container">AI Insight</h3>
+</div>
+<p class="text-on-secondary-fixed-variant text-body-md font-body-md leading-relaxed mb-6">
+                        "I've noticed your alert frequency for irrigation is higher than usual. Based on the 7-day forecast, I suggest switching to <span class="font-bold">Eco-Mode</span> to save 12% on water consumption."
+                    </p>
+<button class="w-full py-3 bg-secondary text-white rounded-xl font-label-bold text-label-md hover:bg-on-secondary-fixed-variant transition-colors">
+                        Apply Eco-Mode
+                    </button>
+</div>
+<!-- Voice Language Selection -->
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200">
+<h3 class="font-label-bold text-label-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">language</span>
+                        Voice Language
+                    </h3>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl border border-outline-variant hover:border-primary cursor-pointer transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close up of a stylized globe with golden light highlighting continents and soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyYavoM1X3luiHiQ-KSRzkB0uMfplMtWXYpYXaVLDgcbukNl0uH8WTmY509jXdl5fOIDLHuk58IQ3osNSCyNExPaPKrrPGqwMkxSNqHTGoY1IYRVoa_cgmJHF5rTdl4wMilFoW30Hz11QpPdBkPhfZTIIzyKMN-o5_EKq-dbuv5Xj8QuyXP1X6AL-IjTieHu26FVo6EZOy9XtAcGjNLCl3ENzFF32uQwMHel5QiHq10BNQwmr_9JOVCpnclciPcr_uWEElgqKBsdo"/>
+</div>
+<div>
+<p class="font-label-bold text-label-md text-on-surface">English (UK)</p>
+<p class="text-caption font-caption text-on-primary-container font-medium">Recommended for your region</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+<!-- Active Map Context -->
+<div class="bg-white p-2 rounded-2xl shadow-sm border border-stone-200 overflow-hidden">
+<div class="relative h-48 w-full rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[0.2]" data-alt="High angle view of geometric green farm fields separated by dirt roads under a clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjMMuaPDr0gKKjU8hGshlJ4d3DWXUhAW_PyxsiDxm9DmPF0GYmQ1tEsZPC5xaOo42Q-NUkIFKT8Wp7aTuqkO75Mf7Kxw1Y8UtHP4v8q9u1sbjNCzBhWUvSJkdVQCU5bb-Ah_RBA28YgffD7-Ehac1VMYhyQHE1xaU-uzHlZTpMA-h-DxArHlRONLD71MOlzLy5K17JjOPQwCSM_TpmvYn-meL8sm6CB2y843miTntRVJzcmfWlCRRCqNpXa84ovk-AH3xuQdlJZpQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<p class="text-caption font-bold uppercase tracking-widest opacity-80">Primary Sector</p>
+<p class="font-headline-md text-body-lg">Hertfordshire Hub</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden on this transactional/settings screen as per mandate, but included for structure if needed elsewhere) -->
+<!-- The FAB is suppressed here to prioritize the Communication Hub's focused settings journey. -->
+<!-- AI Chatbot Assistant -->
+<div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-4">
+<!-- Chatbot Panel -->
+<div class="flex flex-col w-[380px] h-[550px] bg-white rounded-2xl shadow-2xl border border-stone-200 overflow-hidden mb-2 animate-in slide-in-from-bottom-5 duration-300" id="ai-chatbot-panel">
+<!-- Header -->
+<div class="bg-primary p-4 flex items-center justify-between text-white">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-headline-md text-body-lg">AI Assistant</span>
+</div>
+<button class="hover:bg-white/20 rounded-full p-1 transition-colors" onclick="document.getElementById('ai-chatbot-panel').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Chat History -->
+<div class="flex-grow overflow-y-auto p-4 space-y-4 bg-stone-50">
+<div class="flex justify-start">
+<div class="bg-white border border-stone-200 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-body-md shadow-sm">
+          Hello! I'm your Agri-Intelligence Assistant. How can I help you with the North Field today?
+        </div>
+</div>
+<div class="flex justify-end">
+<div class="bg-primary text-white p-3 rounded-2xl rounded-tr-none max-w-[85%] text-body-md shadow-md">
+          What's the soil moisture level in the North Ridge?
+        </div>
+</div>
+<div class="flex justify-start">
+<div class="bg-white border border-stone-200 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-body-md shadow-sm">
+          Soil moisture in North Ridge is at 42%. Based on the heat forecast, I recommend a light irrigation cycle at 05:00 tomorrow.
+        </div>
+</div>
+</div>
+<!-- Suggestion Chips -->
+<div class="px-4 py-2 flex flex-wrap gap-2 bg-white border-t border-stone-100">
+<button class="px-3 py-1 bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-full text-caption text-on-surface-variant transition-colors">Check irrigation</button>
+<button class="px-3 py-1 bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-full text-caption text-on-surface-variant transition-colors">Weather update</button>
+<button class="px-3 py-1 bg-surface-container-low hover:bg-surface-container-high border border-outline-variant rounded-full text-caption text-on-surface-variant transition-colors">Crop advice</button>
+</div>
+<!-- Input Area -->
+<div class="p-4 bg-white border-t border-stone-200">
+<div class="relative flex items-center gap-2">
+<div class="relative flex-grow">
+<input class="w-full pl-4 pr-10 py-3 bg-surface-container-low border-none rounded-xl text-body-md focus:ring-2 focus:ring-primary/20" placeholder="Ask about weather, irrigation, or crops..." type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+<button class="bg-primary text-white p-3 rounded-xl hover:bg-primary-container transition-colors shadow-md">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Floating Action Button (FAB) -->
+<button class="w-14 h-14 bg-[#2D5A27] text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all" onclick="document.getElementById('ai-chatbot-panel').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</button>
+</div></body></html>

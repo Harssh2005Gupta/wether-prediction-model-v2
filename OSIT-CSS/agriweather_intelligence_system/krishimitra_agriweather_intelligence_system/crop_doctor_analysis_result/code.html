@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&amp;family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f3f4f3",
+                    "tertiary-fixed-dim": "#f4bb92",
+                    "on-background": "#191c1c",
+                    "inverse-primary": "#a1d494",
+                    "on-secondary-fixed-variant": "#004b74",
+                    "background": "#f9f9f8",
+                    "surface": "#f9f9f8",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#704727",
+                    "secondary-container": "#67bafd",
+                    "surface-variant": "#e1e3e2",
+                    "surface-dim": "#d9dad9",
+                    "surface-container-high": "#e7e8e7",
+                    "on-tertiary-container": "#f0b78f",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#cde5ff",
+                    "surface-tint": "#3b6934",
+                    "on-secondary-fixed": "#001d32",
+                    "on-primary-fixed-variant": "#23501e",
+                    "surface-container-highest": "#e1e3e2",
+                    "on-tertiary-fixed-variant": "#653d1e",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#bcf0ae",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#301400",
+                    "outline-variant": "#c2c9bb",
+                    "surface-bright": "#f9f9f8",
+                    "on-surface": "#191c1c",
+                    "tertiary": "#553112",
+                    "on-surface-variant": "#42493e",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "secondary": "#006399",
+                    "primary-fixed-dim": "#a1d494",
+                    "on-primary-container": "#9dd090",
+                    "on-secondary-container": "#004972",
+                    "outline": "#72796e",
+                    "inverse-surface": "#2e3131",
+                    "primary-container": "#2d5a27",
+                    "surface-container": "#edeeed",
+                    "inverse-on-surface": "#f0f1f0",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#94ccff",
+                    "on-primary-fixed": "#002201",
+                    "primary": "#154212"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin": "20px",
+                    "xl": "32px",
+                    "unit": "8px",
+                    "lg": "24px",
+                    "max-width": "1200px",
+                    "gutter": "16px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Work Sans"],
+                    "headline-md": ["Work Sans"],
+                    "caption": ["Public Sans"],
+                    "label-bold": ["Public Sans"],
+                    "headline-xl": ["Work Sans"],
+                    "body-md": ["Public Sans"],
+                    "label-md": ["Public Sans"],
+                    "body-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9f8;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 border-r fixed left-0 top-0 bg-white border-stone-200 shadow-sm flex flex-col py-6 z-50">
+<div class="px-6 mb-8">
+<h1 class="text-xl font-bold text-emerald-900 font-headline-md">AgriIntel AI</h1>
+<p class="text-stone-500 font-label-md">Field Monitor</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="bug_report">bug_report</span>
+<span class="font-label-md">Crop Doctor</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="water_drop">water_drop</span>
+<span class="font-label-md">Irrigation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="grass">grass</span>
+<span class="font-label-md">Soil Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+<span class="font-label-md">Sensors</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-1">
+<div class="bg-emerald-50 text-emerald-700 p-4 rounded-lg mb-6 flex flex-col gap-2 border-r-4 border-emerald-600">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="font-label-bold">Crop Doctor</span>
+</div>
+<p class="text-caption">Analysis active</p>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-stone-50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="h-16 fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-stone-50/80 backdrop-blur-md border-b border-stone-200 flex justify-between items-center px-8">
+<div class="flex items-center gap-4 bg-surface-container rounded-full px-4 py-1.5 w-96 border border-outline-variant/30">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full" placeholder="Search field data..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="text-stone-500 hover:text-emerald-600 transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-stone-500 hover:text-emerald-600 transition-opacity">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-emerald-200">
+<img class="h-full w-full object-cover" data-alt="portrait of a professional farmer in a sunlit field wearing a straw hat and smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo3iuAgfYCiZFyHcjAdYs7kUCkj3u-qo6O8HHDqJx9C_PEn3QAD75rvl-1QkRe6BDxBsA26h1-rSVShlT6QPRz-RvR7iHXIgkvN0kdMQyxjAinZz5jW18f17iqxMxM49C1xq8JCq-yM4MyYe_e1mX27Kw5OL35NqL4lpxuTBCUnydwZDQrBrcBCCDdV4f2hpyVn4O4VKIS_UWfkWVNokXICF1bACcPp8BxXMHYlEJxC_rcu840TeE69cvTQ0a7MmwSGEaPaLIZjxQ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-12 px-8 min-h-screen">
+<div class="max-w-5xl mx-auto">
+<!-- Result Header -->
+<div class="mb-8">
+<h2 class="font-headline-lg text-primary mb-2">Crop Doctor Analysis</h2>
+<p class="text-body-md text-on-surface-variant">Real-time AI diagnosis based on field imagery from Sector 4G (Tomato Crop).</p>
+</div>
+<!-- Bento Grid Results -->
+<div class="grid grid-cols-12 gap-6 mb-8">
+<!-- Diagnosis Primary Card -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-md p-lg border border-outline-variant/15">
+<div class="flex items-start justify-between mb-6">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-tertiary-fixed rounded-lg text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-icon="coronavirus">coronavirus</span>
+</div>
+<div>
+<p class="text-caption text-on-surface-variant uppercase tracking-wider font-bold">Disease Identified</p>
+<h3 class="font-headline-md text-on-surface">Early Blight</h3>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="bg-tertiary-fixed-dim text-tertiary px-4 py-1 rounded-full font-label-bold">Severity: Medium</span>
+<p class="text-caption text-on-surface-variant mt-1 italic">Action recommended within 48h</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<p class="text-caption text-on-surface-variant mb-1">AI Confidence Score</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-headline-md text-primary">94%</span>
+<div class="w-full bg-surface-container h-2 rounded-full mb-2">
+<div class="bg-primary h-2 rounded-full" style="width: 94%"></div>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<p class="text-caption text-on-surface-variant mb-1">Affected Area Est.</p>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-headline-md text-secondary">12%</span>
+<p class="text-caption mb-1.5 text-on-surface-variant">of Sector 4G</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-bold flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+                            About Early Blight (Alternaria solani)
+                        </h4>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                            Early blight is a common fungal disease that affects tomato foliage, stems, and fruit. It typically appears as dark spots with concentric rings (target-like appearance) on older leaves. If left untreated, it can lead to significant defoliation and reduced crop yield.
+                        </p>
+</div>
+</div>
+<!-- Analysis Preview Card -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-xl shadow-md overflow-hidden border border-outline-variant/15 flex flex-col">
+<div class="h-56 relative">
+<img class="w-full h-full object-cover" data-alt="close up of a tomato plant leaf with small brown spots showing signs of fungal infection and early blight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_1YHfuHDtXK7XI6PpOwCRO7UUdDGDKy0cy24Dw0_Lnn6KxfwuONE0HNrOYKA66_yVvH8Mf9v4ZS9mWmZjwCHDSR1E4yBn_AJ683urloerb8Iargka2paCE8YpGWMQHCbNhwLRZi-xvFVu_Wg_w5AOuqOo6vgejaFzjgKvQFcrEHLG2tVt5xLX9PDy7-JfxLTmcb0RgPuOWAomSbevCzfi228YOvQ5x8mWgpFBuFFxXDIpGtSihWkADAafYnit2o0nqmoxXaUv8p8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white">
+<p class="text-caption font-bold">Analysis Sample #8821</p>
+<p class="text-[10px] opacity-80">Captured 14 mins ago</p>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div class="space-y-3">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="text-sm text-on-surface-variant">Environmental Risk</span>
+<span class="text-sm font-bold text-error">High Humidity</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/20">
+<span class="text-sm text-on-surface-variant">Spread Potential</span>
+<span class="text-sm font-bold text-tertiary">Moderate</span>
+</div>
+</div>
+<div class="mt-6 flex flex-col gap-2">
+<button class="w-full py-3 bg-primary text-white rounded-lg font-label-bold hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="analytics">analytics</span>
+                                View Detailed Treatment
+                            </button>
+<button class="w-full py-3 border border-secondary text-secondary rounded-lg font-label-bold hover:bg-secondary-fixed/30 transition-all">
+                                Save Report
+                            </button>
+</div>
+</div>
+</div>
+<!-- AI Recommended Treatment -->
+<div class="col-span-12 bg-white rounded-xl shadow-md p-lg border-l-8 border-l-secondary-container relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-5">
+<span class="material-symbols-outlined text-9xl" data-icon="bolt">bolt</span>
+</div>
+<div class="flex items-center gap-2 mb-6">
+<div class="bg-secondary-container/20 p-2 rounded-lg text-secondary">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="font-headline-md text-on-surface">AI Recommended Treatment Plan</h3>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="flex gap-4">
+<div class="h-10 w-10 shrink-0 bg-surface-container rounded-full flex items-center justify-center font-bold text-primary">1</div>
+<div>
+<h5 class="font-label-bold text-on-surface mb-1">Prune Infected Foliage</h5>
+<p class="text-caption text-on-surface-variant">Remove lower leaves that show spotting to prevent ground-level fungal splash.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-10 w-10 shrink-0 bg-surface-container rounded-full flex items-center justify-center font-bold text-primary">2</div>
+<div>
+<h5 class="font-label-bold text-on-surface mb-1">Apply Copper Fungicide</h5>
+<p class="text-caption text-on-surface-variant">Use an organic copper-based spray every 7-10 days until symptoms subside.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="h-10 w-10 shrink-0 bg-surface-container rounded-full flex items-center justify-center font-bold text-primary">3</div>
+<div>
+<h5 class="font-label-bold text-on-surface mb-1">Adjust Irrigation Time</h5>
+<p class="text-caption text-on-surface-variant">Switch to early morning watering to allow foliage to dry before nightfall.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Scan History -->
+<div class="col-span-12">
+<h4 class="font-label-bold text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+                        Recent Scan History - Sector 4G
+                    </h4>
+<div class="bg-surface-container-low rounded-xl border border-outline-variant/30 overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-high/50 text-on-surface-variant font-label-md">
+<tr>
+<th class="px-6 py-3 border-b border-outline-variant/20">Date</th>
+<th class="px-6 py-3 border-b border-outline-variant/20">Condition</th>
+<th class="px-6 py-3 border-b border-outline-variant/20">Confidence</th>
+<th class="px-6 py-3 border-b border-outline-variant/20">Severity</th>
+<th class="px-6 py-3 border-b border-outline-variant/20 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="hover:bg-white/50 transition-colors">
+<td class="px-6 py-4 text-on-surface-variant">Oct 12, 2023</td>
+<td class="px-6 py-4 font-medium">Healthy</td>
+<td class="px-6 py-4">98%</td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold">NONE</span></td>
+<td class="px-6 py-4 text-right"><button class="text-secondary font-medium">View</button></td>
+</tr>
+<tr class="hover:bg-white/50 transition-colors">
+<td class="px-6 py-4 text-on-surface-variant">Oct 05, 2023</td>
+<td class="px-6 py-4 font-medium">Nutrient Deficiency (N)</td>
+<td class="px-6 py-4">89%</td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold">LOW</span></td>
+<td class="px-6 py-4 text-right"><button class="text-secondary font-medium">View</button></td>
+</tr>
+<tr class="hover:bg-white/50 transition-colors border-t border-outline-variant/10">
+<td class="px-6 py-4 text-on-surface-variant">Sep 28, 2023</td>
+<td class="px-6 py-4 font-medium">Healthy</td>
+<td class="px-6 py-4">99%</td>
+<td class="px-6 py-4"><span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold">NONE</span></td>
+<td class="px-6 py-4 text-right"><button class="text-secondary font-medium">View</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for quick scan -->
+<button class="fixed bottom-8 right-8 h-14 w-14 rounded-full bg-primary text-white shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-2xl" data-icon="photo_camera" data-weight="fill" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+</button>
+</body></html>

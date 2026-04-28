@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SWIF Intelligence | Soil Analysis Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;family=Public+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9f8",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#704727",
+                        "background": "#f9f9f8",
+                        "secondary-container": "#67bafd",
+                        "tertiary-fixed-dim": "#f4bb92",
+                        "on-background": "#191c1c",
+                        "inverse-primary": "#a1d494",
+                        "surface-container-low": "#f3f4f3",
+                        "on-secondary-fixed-variant": "#004b74",
+                        "on-secondary-fixed": "#001d32",
+                        "on-primary-fixed-variant": "#23501e",
+                        "surface-tint": "#3b6934",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#bcf0ae",
+                        "surface-container-highest": "#e1e3e2",
+                        "on-tertiary-fixed-variant": "#653d1e",
+                        "surface-variant": "#e1e3e2",
+                        "surface-container-high": "#e7e8e7",
+                        "on-tertiary-container": "#f0b78f",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#cde5ff",
+                        "surface-dim": "#d9dad9",
+                        "tertiary": "#553112",
+                        "on-surface-variant": "#42493e",
+                        "outline-variant": "#c2c9bb",
+                        "surface-bright": "#f9f9f8",
+                        "on-surface": "#191c1c",
+                        "secondary": "#006399",
+                        "primary-fixed-dim": "#a1d494",
+                        "on-primary-container": "#9dd090",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#301400",
+                        "tertiary-fixed": "#ffdcc5",
+                        "inverse-on-surface": "#f0f1f0",
+                        "error-container": "#ffdad6",
+                        "primary": "#154212",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#94ccff",
+                        "on-primary-fixed": "#002201",
+                        "inverse-surface": "#2e3131",
+                        "primary-container": "#2d5a27",
+                        "on-secondary-container": "#004972",
+                        "outline": "#72796e",
+                        "surface-container": "#edeeed"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xs": "4px",
+                        "margin": "20px",
+                        "xl": "32px",
+                        "unit": "8px",
+                        "lg": "24px",
+                        "max-width": "1200px",
+                        "gutter": "16px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Public Sans"],
+                        "headline-md": ["Work Sans"],
+                        "headline-lg": ["Work Sans"],
+                        "label-md": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "headline-xl": ["Work Sans"],
+                        "body-md": ["Public Sans"],
+                        "label-bold": ["Public Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px -2px rgba(45, 90, 39, 0.12);
+        }
+        .ai-glow {
+            box-shadow: 0 0 30px -5px rgba(103, 186, 253, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col bg-white border-r border-[#8B5E3C]/15 shadow-xl py-6 z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-[#2D5A27]">GreenValley Labs</h2>
+<p class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">Premium Soil Analysis</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col">
+<!-- Active Tab: Lab Sync (Semantic mapping for Soil Analysis dashboard) -->
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-50 transition-all hover:translate-x-1 duration-200 cursor-pointer" title="Overview">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-50 transition-all hover:translate-x-1 duration-200 cursor-pointer" title="Nutrient Map">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md">Nutrient Map</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-50 transition-all hover:translate-x-1 duration-200 cursor-pointer" title="Pest Control">
+<span class="material-symbols-outlined">bug_report</span>
+<span class="font-label-md">Pest Control</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-50 transition-all hover:translate-x-1 duration-200 cursor-pointer" title="Irrigation">
+<span class="material-symbols-outlined">water_drop</span>
+<span class="font-label-md">Irrigation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 hover:bg-zinc-50 transition-all hover:translate-x-1 duration-200 cursor-pointer" title="Yield AI">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-md">Yield AI</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#2D5A27]/5 text-[#2D5A27] border-r-4 border-[#2D5A27] font-bold transition-all hover:translate-x-1 duration-200 cursor-pointer" title="Lab Sync">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">science</span>
+<span class="font-label-md">Lab Sync</span>
+</a>
+</nav>
+<div class="mt-auto px-4 border-t border-zinc-100 pt-6">
+<button class="w-full py-3 bg-primary text-white rounded-xl font-label-bold flex items-center justify-center gap-2 mb-4 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">download</span>
+                Download Report
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-zinc-500 hover:text-primary transition-colors text-sm">
+<span class="material-symbols-outlined text-sm">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-zinc-500 hover:text-primary transition-colors text-sm">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-64 min-h-screen">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 w-full z-40 bg-[#F8F9F8] border-b border-[#8B5E3C]/15 shadow-sm">
+<div class="flex justify-between items-center h-16 px-8 w-full mx-auto max-w-screen-2xl">
+<div class="flex items-center gap-8">
+<h1 class="text-2xl font-black text-[#2D5A27] font-['Work_Sans'] tracking-tight flex items-center gap-2">
+                        SWIF Intelligence
+                    </h1>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-zinc-500 font-medium hover:text-[#2D5A27] transition-colors" href="#">Dashboard</a>
+<a class="text-[#2D5A27] font-semibold border-b-2 border-[#2D5A27] pb-1" href="#">Soil Reports</a>
+<a class="text-zinc-500 font-medium hover:text-[#2D5A27] transition-colors" href="#">Field Maps</a>
+<a class="text-zinc-500 font-medium hover:text-[#2D5A27] transition-colors" href="#">Sensors</a>
+<a class="text-zinc-500 font-medium hover:text-[#2D5A27] transition-colors" href="#">History</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2 bg-primary text-white rounded-lg font-label-bold active:scale-95 duration-150">
+                        Analyze Soil
+                    </button>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-zinc-100 rounded-md transition-all material-symbols-outlined text-zinc-600">notifications</button>
+<button class="p-2 hover:bg-zinc-100 rounded-md transition-all material-symbols-outlined text-zinc-600">settings</button>
+<div class="h-8 w-8 rounded-full bg-zinc-200 overflow-hidden border border-[#2D5A27]/20">
+<img alt="Farmer Profile" class="w-full h-full object-cover" data-alt="Professional portrait of a modern farmer in a clean work shirt looking confidently at the camera in a sunny field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_2HXj_I_Ra4zlKFwgcmVyFHR-4HMwECrs_ZruZbhuQRWyK9rtndBxukLk6VSebjTcIqwfPMSgAvweSY26o5Qu3JXN-BbVPxY4nbO7H6YoEsSANKSLM_SlO5XbyKxlLUO3xPd05tXKquJjAPEbV6YZnI13xeVcUgLkD155gnR3dY1A8O48sQRMVwH7Iw7kz3FoxsuyBqcgMZ69GwqXbHQXaClnFxO4Q2QpuAehwEW-OejNg-soR6wBR1ihQvSAAAdtBqGMeL0tqvw"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8 max-w-screen-2xl mx-auto space-y-8">
+<!-- Hero Section: AI Insight & Field Health -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- AI Smart Insight Card -->
+<div class="lg:col-span-2 bg-white rounded-xl p-lg card-shadow ai-glow border border-secondary-container/20 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-secondary-container/10 text-secondary text-caption rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                                Priority: High
+                            </span>
+<span class="px-3 py-1 bg-primary/10 text-primary text-caption rounded-full font-bold">
+                                Confidence: 92%
+                            </span>
+</div>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="p-2 bg-secondary-container rounded-lg">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">flare</span>
+</div>
+<h3 class="font-headline-md text-secondary">AI Smart Insight</h3>
+</div>
+<div class="space-y-4">
+<p class="font-body-lg text-on-surface leading-relaxed max-w-2xl">
+                            Apply <span class="font-bold text-secondary">Nitrogen-rich fertilizer</span> within 48 hours for optimal growth. Current levels are dipping below the 15% threshold for the vegetative stage.
+                        </p>
+<div class="flex items-center gap-2 text-primary font-label-bold">
+<span class="material-symbols-outlined">trending_up</span>
+                            Impact: High yield improvement predicted (+12%)
+                        </div>
+</div>
+</div>
+<!-- Field Health Summary Card -->
+<div class="bg-white rounded-xl p-lg card-shadow border border-[#8B5E3C]/15">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-md">Field Health</h3>
+<span class="px-3 py-1 bg-amber-100 text-amber-800 text-caption rounded-full font-bold uppercase tracking-wide">Needs Attention</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div>
+<p class="text-caption text-on-surface-variant">Key Issue</p>
+<p class="font-label-bold text-error">Nitrogen deficiency</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div>
+<p class="text-caption text-on-surface-variant">Irrigation Status</p>
+<p class="font-label-bold text-primary">Optimal</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 outline outline-1 outline-secondary text-secondary rounded-lg font-label-bold hover:bg-secondary-container/10 transition-colors">
+                        View Detailed Map
+                    </button>
+</div>
+</div>
+<!-- Main Data Grid -->
+<div class="bento-grid">
+<!-- Nutrient Overview Panel -->
+<div class="col-span-12 lg:col-span-8 bg-white rounded-xl p-lg card-shadow border border-[#8B5E3C]/15">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-md">Nutrient Overview</h3>
+<button class="text-secondary font-label-bold flex items-center gap-1 hover:underline">
+                            History <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Nitrogen -->
+<div class="p-md bg-surface-container-low rounded-xl border border-error/10">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline-md text-error">N</span>
+<span class="text-caption font-bold text-error">LOW</span>
+</div>
+<div class="h-2 w-full bg-zinc-200 rounded-full mb-4 overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 28%"></div>
+</div>
+<p class="text-caption text-on-surface-variant mb-2">Nitrogen Levels</p>
+<p class="text-[12px] font-bold text-error leading-tight">Apply nitrogen-rich fertilizer within 48 hrs</p>
+</div>
+<!-- Phosphorus -->
+<div class="p-md bg-surface-container-low rounded-xl border border-primary/10">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline-md text-primary">P</span>
+<span class="text-caption font-bold text-primary">OPTIMAL</span>
+</div>
+<div class="h-2 w-full bg-zinc-200 rounded-full mb-4 overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 72%"></div>
+</div>
+<p class="text-caption text-on-surface-variant mb-2">Phosphorus Levels</p>
+<p class="text-[12px] font-bold text-primary leading-tight">No action needed</p>
+</div>
+<!-- Potassium -->
+<div class="p-md bg-surface-container-low rounded-xl border border-amber-500/10">
+<div class="flex justify-between items-center mb-2">
+<span class="font-headline-md text-amber-600">K</span>
+<span class="text-caption font-bold text-amber-600">HIGH</span>
+</div>
+<div class="h-2 w-full bg-zinc-200 rounded-full mb-4 overflow-hidden">
+<div class="h-full bg-amber-500 rounded-full" style="width: 88%"></div>
+</div>
+<p class="text-caption text-on-surface-variant mb-2">Potassium Levels</p>
+<p class="text-[12px] font-bold text-amber-600 leading-tight">Reduce input next cycle</p>
+</div>
+</div>
+</div>
+<!-- Soil pH Section -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl p-lg card-shadow border border-[#8B5E3C]/15 flex flex-col items-center justify-center text-center">
+<h3 class="font-headline-md mb-6 w-full text-left">Soil pH</h3>
+<div class="relative w-48 h-24 mb-6">
+<!-- Simplified Gauge Design -->
+<svg class="w-full h-full" viewbox="0 0 100 50">
+<path d="M 10 45 A 35 35 0 0 1 90 45" fill="none" stroke="#e1e3e2" stroke-linecap="round" stroke-width="8"></path>
+<path d="M 10 45 A 35 35 0 0 1 70 20" fill="none" stroke="#f4bb92" stroke-linecap="round" stroke-width="8"></path>
+</svg>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+<span class="text-4xl font-extrabold text-on-surface">6.5</span>
+<span class="px-3 py-1 bg-tertiary-fixed text-tertiary text-[10px] rounded-full font-bold uppercase tracking-wider mt-1">Slightly Acidic</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant">Suitable for most crops. No lime adjustment required this season.</p>
+</div>
+<!-- Moisture Content Graph -->
+<div class="col-span-12 md:col-span-6 lg:col-span-7 bg-white rounded-xl p-lg card-shadow border border-[#8B5E3C]/15">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md">Last 7 Days Moisture Trend</h3>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<div class="w-3 h-3 bg-secondary rounded-full"></div>
+<span class="text-caption">Actual</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-3 h-3 bg-primary-fixed-dim rounded-full"></div>
+<span class="text-caption">Target Zone</span>
+</div>
+</div>
+</div>
+<div class="h-48 w-full relative">
+<!-- High Fidelity CSS Chart Representation -->
+<div class="absolute inset-0 bg-primary/5 rounded-lg border-y border-primary/10 top-10 bottom-20"></div> <!-- Optimal Range Band -->
+<div class="absolute inset-0 flex items-end justify-between px-2 pt-4">
+<div class="w-[10%] h-[40%] bg-secondary/20 relative group">
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-secondary rounded-full border-2 border-white"></div>
+<div class="absolute bottom-[-24px] left-1/2 -translate-x-1/2 text-caption opacity-40">Mon</div>
+</div>
+<div class="w-[10%] h-[55%] bg-secondary/20 relative">
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-secondary rounded-full border-2 border-white"></div>
+<div class="absolute bottom-[-24px] left-1/2 -translate-x-1/2 text-caption opacity-40">Tue</div>
+</div>
+<div class="w-[10%] h-[72%] bg-secondary/30 relative">
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-secondary rounded-full border-2 border-white shadow-lg z-10"></div>
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-on-surface text-white px-2 py-1 rounded text-[10px] font-bold">72%</div>
+<div class="absolute bottom-[-24px] left-1/2 -translate-x-1/2 text-caption opacity-40">Wed</div>
+</div>
+<div class="w-[10%] h-[68%] bg-secondary/20 relative">
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-secondary rounded-full border-2 border-white"></div>
+<div class="absolute bottom-[-24px] left-1/2 -translate-x-1/2 text-caption opacity-40">Thu</div>
+</div>
+<div class="w-[10%] h-[45%] bg-secondary/20 relative">
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-secondary rounded-full border-2 border-white"></div>
+<div class="absolute bottom-[-24px] left-1/2 -translate-x-1/2 text-caption opacity-40">Fri</div>
+</div>
+<div class="w-[10%] h-[42%] bg-secondary/20 relative">
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-secondary rounded-full border-2 border-white"></div>
+<div class="absolute bottom-[-24px] left-1/2 -translate-x-1/2 text-caption opacity-40">Sat</div>
+</div>
+<div class="w-[10%] h-[50%] bg-secondary/20 relative">
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-secondary rounded-full border-2 border-white"></div>
+<div class="absolute bottom-[-24px] left-1/2 -translate-x-1/2 text-caption opacity-40 font-bold">Today</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Soil Temperature Card -->
+<div class="col-span-12 md:col-span-6 lg:col-span-5 bg-white rounded-xl p-lg card-shadow border border-[#8B5E3C]/15">
+<div class="flex items-center gap-3 mb-8">
+<div class="p-2 bg-primary-fixed rounded-lg text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">thermostat</span>
+</div>
+<h3 class="font-headline-md">Soil Temperature</h3>
+</div>
+<div class="flex items-baseline gap-4 mb-4">
+<span class="text-5xl font-extrabold tracking-tight">18.4°C</span>
+<div class="flex items-center text-primary font-label-bold text-lg">
+<span class="material-symbols-outlined">trending_up</span>
+                            +1.2°C
+                        </div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary text-caption rounded-full font-bold uppercase">Optimal</span>
+<p class="text-caption text-on-surface-variant">Ideal for seed germination</p>
+</div>
+</div>
+<!-- Visual Confirmation Card -->
+<div class="col-span-12 bg-white rounded-xl overflow-hidden card-shadow border border-[#8B5E3C]/15 relative h-[320px]">
+<img alt="Soil Visual Confirmation" class="w-full h-full object-cover" data-alt="Top-down close-up view of dark, rich moist soil with tiny green sprouts emerging in rows, soft natural morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzZI26EuOxnNfkEAWasMuxD3InIwJcAMxttQmpV-Ihvrp0xIoX114N4lcArPsylaCoHqrHUKvxbZn7yZItq4kGDm9S5stCWN4Bo5NkC0sKI2Ij0FDrmHxcUL5UGgQCgkotQ8rc0-3vNe_uMPtyOKvev0-LNUiuvoe4xXKk8fJsVzllfVvT-YTjeNXsWX0z5AufeVwFtEHqD2oY0mSdXIFh7bQhmHCvvIqmLI3L3mLE00PBQdXY-_30QAgDNyZBzuAyuXkDa6lLK_0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end">
+<div class="p-lg w-full flex flex-col md:flex-row justify-between items-end gap-4">
+<div class="text-white">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_10px_rgba(35,80,30,1)]"></span>
+<span class="font-label-bold text-lg uppercase tracking-wider">Status: Live</span>
+</div>
+<h4 class="font-headline-lg mb-1">Visual Soil Confirmation</h4>
+<p class="font-body-md text-zinc-300">Remote Camera Feed: Sector N-12 • High Resolution Spectral Analysis</p>
+</div>
+<div class="bg-white/10 backdrop-blur-md rounded-xl p-md border border-white/20 text-white min-w-[200px]">
+<div class="flex justify-between mb-2">
+<span class="text-caption opacity-70">Last Updated</span>
+<span class="text-caption font-bold">2h ago</span>
+</div>
+<div class="flex justify-between">
+<span class="text-caption opacity-70">Sensor Node</span>
+<span class="text-caption font-bold">SN-48291</span>
+</div>
+<button class="w-full mt-4 py-2 bg-white text-on-surface rounded-lg font-label-bold text-sm hover:bg-zinc-100 transition-colors">
+                                    Refresh Feed
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
